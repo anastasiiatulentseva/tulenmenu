@@ -1,0 +1,35 @@
+make Dashboard for admin:
+make checkboxes for Dish of the day
+pre-made dishes (for borsh and kashka)
+approving dishes and assign dates
+
+Devise - install gem for autentication
+
+Entities (models):
+  User
+    username
+    avatar
+    is_admin
+    password
+  
+  Dish (catalog): (has_many :dish_days)
+    dishname
+    dish_image
+    is_dish-of-the-day
+    is_delivery
+    is_suggested
+  
+  Dish_day table (belongs_to :dish)
+    dishname 
+    date
+
+Controllers:
+application
+user
+static_pages (home)
+week_plan
+days_menu
+dish_day_controller
+suggested_dishes
+
+

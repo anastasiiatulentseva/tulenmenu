@@ -1,0 +1,3 @@
+Scope:
+Create dish-day
+View dish-day
