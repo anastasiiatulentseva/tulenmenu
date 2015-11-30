@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  picture: MyString
+borsch:
+  name: borsch
+  picture: b.jpg
 
-two:
-  name: MyString
-  picture: MyString
+kashka:
+  name: kashka
+  picture: b.jpg

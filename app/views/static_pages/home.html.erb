@@ -1,17 +1,8 @@
 <div class="big-logo">
   <%= image_tag("home.jpg", alt: "Our logo", class: 'img-responsive') %>
 </div>
-<div class="container">
-<nav>
-  <ul class="nav navbar-nav navbar-left">
-    <li><%= link_to "Today's Menu", '#' %></li>
-    <li><%= link_to "Week plan", '#' %></li>
-    <li><%= link_to "Shopping list", '#' %></li>
-    <li><%= link_to "Feedback", '#' %></li>
-  </ul>
-</nav>
-<div>
-<div class="left jumbotron">
+<%= render 'shared/navmenu'%>
+<div class="center jumbotron">
   <h2>Dish of the day:</h2>
   <p>Soon here will be the dish</p>
 </div>
