@@ -18,3 +18,6 @@
  
 #Ignore Spring files
 /srping/*.pid
+
+# Ignore uploaded test images.
+/public/uploads
