@@ -1,7 +1,22 @@
 require 'test_helper'
 
 class DishesControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  
+  
+  test "should redirect new for correct dish" do
+    assert_difference 'Dish.count', 1 do
+      post :create, dish: { name: "dish" }
+    end
+    assert_redirected_to new_dish_url
+  end
+  
+  test "should redirect new for wrong dish" do
+    assert_no_difference 'Dish.count' do
+      post :create, dish: { name: "d" }
+    end
+    assert_redirected_to new_dish_url
+  end
+  
+  
 end
