@@ -11,11 +11,11 @@ class DishesControllerTest < ActionController::TestCase
     assert_redirected_to new_dish_url
   end
   
-  test "should redirect new for wrong dish" do
+  test "should render new for wrong dish" do
     assert_no_difference 'Dish.count' do
       post :create, dish: { name: "d" }
     end
-    assert_redirected_to new_dish_url
+    assert_template 'dishes/new'
   end
   
   

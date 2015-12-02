@@ -20,8 +20,9 @@ Entities (models):
     is_suggested
   
   Dish_day table (belongs_to :dish)
-    dishname 
+    dish_id
     date
+    
 
 Controllers:
 application
