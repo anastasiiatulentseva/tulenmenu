@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-borsch:
-  id: 1
-  name: borsch
-  picture: b.jpg
+one:
+  dish_id: 1
+  day: 2015-12-03
 
-kashka:
-  id: 2
-  name: k
-  picture: b.jpg
+two:
+  dish_id: 1
+  day: 2014-12-03

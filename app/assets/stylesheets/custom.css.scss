@@ -58,7 +58,7 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-  text-align: center;
+  text-align: left;
 }
 
 
@@ -96,6 +96,10 @@ p {
     color: $state-danger-text;
   }
 }
+
+#fordishes {
+    width: 205px;
+  }
 
 
 /* miscellaneous */

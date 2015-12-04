@@ -1,0 +1,22 @@
+
+<h1>Here you can assign dishes to dates</h1>
+  
+<div class="container">
+  <%= form_for(@dish_day, html: {multiupart: true, class:"form-horizontal" }) do |f| %>
+    <!-- <%= h f.object.errors.full_messages %> -->
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group", id="fordishes">
+      <%= f.label "Select dish", class: "control-label"%>
+      <%= f.collection_select(:dish_id, Dish.all, :id, :name, {}, class: "form-control")%>
+    </div>
+    <div class="form-group">
+      <%= f.label "Choose date", class: "control-label"%>
+      <div class="form-inline">
+        <%= f.date_select :day, {order: [:day, :month, :year]}, {class: "form-control input-sm"} %>
+      </div>
+    </div>
+    <div class="form-group">
+          <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
