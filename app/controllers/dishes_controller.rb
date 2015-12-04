@@ -13,9 +13,8 @@ class DishesController < ApplicationController
     @dish = Dish.new(dish_params)
     if @dish.save
       flash[:success] = "Dish has been created successfully (I hope)"
-      redirect_to new_dish_path 
+      redirect_to new_dish_path
     else
-      flash[:danger] = "Nope!"
       render "new"
     end
       

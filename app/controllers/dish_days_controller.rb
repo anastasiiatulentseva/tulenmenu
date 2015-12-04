@@ -1,7 +1,5 @@
 class DishDaysController < ApplicationController
   
-  # before_action :not_have_passed, only: :create
-  
   def new
     @dish_day = DishDay.new
   end
@@ -12,7 +10,6 @@ class DishDaysController < ApplicationController
       flash[:success] = "Date has been assigned"
       redirect_to new_dish_day_path
     else
-      flash[:danger] = "Something went wrong"
       render "new"
     end
   end
