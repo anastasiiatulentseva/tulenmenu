@@ -1,0 +1,14 @@
+<h1>Here you can see a menu for today</h1>
+<div class="center jumbotron">
+<div class="container">
+  <% if @dish_days.exists? %>
+    <ul class="list-inline">
+      <% @dish_days.each do |dish_day| %>
+        <%= render partial: 'today_menus/dish_day', locals: {dish_day: dish_day} %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="alert alert-info">Stay hungry today!</p>
+  <% end %>
+</div>
+</div>
