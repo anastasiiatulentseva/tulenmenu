@@ -27,9 +27,9 @@ Entities (models):
 Controllers:
 application
 user
-static_pages (home)
+static_pages (home, about)
 week_plan
-days_menu
+todays_menu
 dish_day_controller
 suggested_dishes
 

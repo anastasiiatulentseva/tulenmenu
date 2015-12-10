@@ -1,3 +1,7 @@
-Scope:
-Create dish-day
-View dish-day
+Scope 2:
+  Week plan
+
+Scope 1:
+  Create dish-day
+  View dish-day
+
