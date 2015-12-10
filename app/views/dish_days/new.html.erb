@@ -1,11 +1,11 @@
+<% provide(:title, "Create menu") %>
 
 <h1>Here you can assign dishes to dates</h1>
   
 <div class="container">
   <%= form_for(@dish_day, html: {multiupart: true, class:"form-horizontal" }) do |f| %>
-    <!-- <%= h f.object.errors.full_messages %> -->
     <%= render 'shared/error_messages', object: f.object %>
-    <div class="form-group", id="fordishes">
+    <div class="form-group", id="for_dishes">
       <%= f.label "Select dish", class: "control-label"%>
       <%= f.collection_select(:dish_id, Dish.all, :id, :name, {}, class: "form-control")%>
     </div>

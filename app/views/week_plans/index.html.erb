@@ -1,22 +1,13 @@
+<% provide(:title, "Week plan") %>
+
 <%= render 'shared/navmenu' %>
 <h1>Here will be a menu for current week</h1>
+
 <% if @week_plan.exists? %>
   <div class="container">
     <ul class="list-group">
-      <% @week_plan.group(:day).each do |dishes| %>
-        <li class="list-group-item">
-          <%= dishes.day.strftime("%A")%>
-        </li>
-        <div class="container">
-        <ol class="list-inline">
-          <% @week_plan.where(day: dishes.day).each do |food| %>
-            <li id="week_plan_dishes">
-              <img id="for-week" class="img-rounded" src="<%= food.dish.picture %>" />
-              <p class="text-center"><%= food.dish.name %></p>
-            </li>
-          <% end %>
-        </ol>
-      </div>
+      <% @week_plan.group(:day).each do |weekday| %>
+        <%= render partial: "weekday", locals: {weekday: weekday} %>
       <% end %>
     </ul>
   </div>

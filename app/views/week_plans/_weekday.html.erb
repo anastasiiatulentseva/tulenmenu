@@ -1,0 +1,10 @@
+<li class="list-group-item">
+  <h4><%= weekday.day.strftime("%A")%></h4>
+  <div class="container">
+    <ol class="list-inline">
+      <% @week_plan.where(day: weekday.day).each do |weekdish| %>
+        <%= render partial: "weekdish", locals: {weekdish: weekdish} %>
+      <% end %>
+    </ol>
+  </div>
+</li>

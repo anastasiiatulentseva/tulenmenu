@@ -6,7 +6,6 @@ class StaticPagesControllerTest < ActionController::TestCase
     @basetitle = "Menu Tulentsevyh"
   end
   
-  
   test "should get home" do
     get :home
     assert_response :success

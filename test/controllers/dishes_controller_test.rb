@@ -2,7 +2,15 @@ require 'test_helper'
 
 class DishesControllerTest < ActionController::TestCase
   
+  def setup
+    @basetitle = "Menu Tulentsevyh"
+  end  
   
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_select "title",  "Dish list | #{@basetitle}"
+  end
   
   test "should redirect new for correct dish" do
     assert_difference 'Dish.count', 1 do
