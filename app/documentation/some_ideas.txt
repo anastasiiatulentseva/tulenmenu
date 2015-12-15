@@ -13,16 +13,24 @@ Entities (models):
     password
   
   Dish (catalog): (has_many :dish_days)
-    dishname
-    dish_image
-    is_dish-of-the-day
+    name
+    picture
+    
     is_delivery
     is_suggested
   
   Dish_day table (belongs_to :dish)
     dish_id
-    date
+    day
+    dish_of_the_day
     
+  Suggested_dishes
+    name
+    picture
+    day
+    delivery
+  
+  
 
 Controllers:
 application
@@ -32,5 +40,6 @@ week_plan
 todays_menu
 dish_day_controller
 suggested_dishes
+
 
 
