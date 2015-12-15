@@ -24,5 +24,22 @@ class AddDishDayTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_dish_day_url
     
   end
+    
+  test "check-box should set dish of the day to true" do
+      get new_dish_day_path
+      assert_difference 'DishDay.dish_of_the_day.count', 1 do
+        post dish_days_path, dish_day: { dish_id: @dish.id, day: Date.today, dish_of_the_day: true }
+      end
+  end
+  
+  
   
 end
+
+
+
+
+
+
+
+

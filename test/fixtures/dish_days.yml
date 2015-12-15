@@ -7,3 +7,8 @@ one:
 two:
   dish_id: 1
   day: 2014-12-03
+  
+three:
+  dish_id: 1
+  day: 2016-12-20
+  dish_of_the_day: true

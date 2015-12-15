@@ -5,7 +5,7 @@ class DishDay < ActiveRecord::Base
   validates :day, presence: true
   validate :not_have_passed, if: :day?
   
-    
+  scope :dish_of_the_day, -> {where(day: Date.today, dish_of_the_day: true)}
   
   private
   
@@ -16,3 +16,4 @@ class DishDay < ActiveRecord::Base
   end
   
 end
+

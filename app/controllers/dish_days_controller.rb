@@ -14,10 +14,11 @@ class DishDaysController < ApplicationController
     end
   end
   
+  
   private
   
   def dish_day_params
-    params.require(:dish_day).permit(:dish_id, :day)
+    params.require(:dish_day).permit(:dish_id, :day, :dish_of_the_day)
   end
   
 end
