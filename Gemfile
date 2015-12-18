@@ -51,6 +51,8 @@ group :development, :test do
   gem 'spring'
   gem 'minitest-rails-capybara'
   gem 'capybara_minitest_spec'
+  gem 'capybara-selenium'
+  gem 'pry'
 end
 
 group :test do
@@ -64,6 +66,6 @@ group :production do
   gem 'rails_12factor'
   gem 'puma'
 end
-  
-  
-  
+
+
+

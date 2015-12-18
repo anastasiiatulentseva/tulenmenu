@@ -13,7 +13,12 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-class ActionDispatch::IntegrationTest
-  # Register "request" tests to be handled by IntegrationTest
+class InteractiveTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
+  include Capybara::Assertions
+
+  def teardown
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
 end

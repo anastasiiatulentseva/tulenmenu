@@ -1,44 +1,34 @@
 require 'test_helper'
 
-class HomePageTest < ActionDispatch::IntegrationTest
-  
+class HomePageTest < InteractiveTest
+
   def setup
     @dish = dishes(:borsch)
   end
-  
+
   test "should show dish of the day" do
-    get root_path
-    assert_template 'static_pages/home'
-    assert_select 'h3.alert-info'
-    
-    get new_dish_day_path
-    post dish_days_path, dish_day: { dish_id: @dish.id, day: Date.today, dish_of_the_day: true }
-    
-    get root_path
-    assert_select 'div#dish_of_the_day'
-    
-    assert_match @dish.name.to_s, response.body
+    visit root_path
+    page.must_have_css 'h3.alert-info'
+
+    visit new_dish_day_path
+    select "borsch", :from => "dish_day[dish_id]"
+    find('#dish_day_dish_of_the_day').set(true)
+    click_button 'Save'
+
+    visit root_path
+    page.must_have_css 'div#dish_of_the_day'
+
+    page.must_have_content @dish.name
   end
-  
+
   test "should render a modal with suggest dish dialog" do
-    get root_path
-    
-    assert_select 'div.col-md-3'
-    assert_select 'button.btn'
-    # click_button('Do it!')
-    find('#suggest_dish_modal').click
-    # assert_select 'div.modal'
-    
+    Capybara.current_driver = :selenium
+    visit root_path
+
+    page.must_have_css 'div.col-md-3'
+    page.must_have_css 'input.btn'
+    click_button('Do it!')
+    page.must_have_css 'div.modal'
+
   end
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 end
