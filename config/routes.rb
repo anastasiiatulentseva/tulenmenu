@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  
+
   root           'static_pages#home'
   get 'about' => 'static_pages#about'
   
-  
   resources :dishes
   resources :dish_days
-  resources  :today_menus
+  resources :today_menus
   resources :week_plans
+  resources :suggested_dishes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

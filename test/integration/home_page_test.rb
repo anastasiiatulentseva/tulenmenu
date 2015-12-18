@@ -20,5 +20,25 @@ class HomePageTest < ActionDispatch::IntegrationTest
     assert_match @dish.name.to_s, response.body
   end
   
+  test "should render a modal with suggest dish dialog" do
+    get root_path
+    
+    assert_select 'div.col-md-3'
+    assert_select 'button.btn'
+    # click_button('Do it!')
+    find('#suggest_dish_modal').click
+    # assert_select 'div.modal'
+    
+  end
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 end
