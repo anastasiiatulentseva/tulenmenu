@@ -88,6 +88,14 @@ p {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+  .name {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .comment {
+    display: block;
+    margin-left: 60px;
+  }
 }
 
 /* forms */
