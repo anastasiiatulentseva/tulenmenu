@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TodayMenusTest < ActionDispatch::IntegrationTest
+class TodayMenusTest < InteractiveTest
  
   def setup
     @dish = dishes(:borsch)
@@ -8,21 +8,23 @@ class TodayMenusTest < ActionDispatch::IntegrationTest
   
   
   test "should show correct result for today's menu" do
-    get today_menus_path
-    assert_template 'index'
+    visit today_menus_path
+   
     #No dishes for today
-    assert_select 'p.alert-info'
-    assert_select 'ul.list-inline', false
+    page.must_have_css 'p.alert-info'
+    page.wont_have_css 'ul.list-inline'
     
-    get new_dish_day_path
-    post dish_days_path, dish_day: {dish_id: @dish.id, day: Date.today}
-    
+    visit new_dish_day_path
+    select Date.today.year, :from => "dish_day[day(1i)]"
+    select @dish.name, :from => "dish_day[dish_id]"
+    click_button('Save')
+        
     #Today's menu exists
-    get today_menus_path
-    assert_select 'p.alert-info', false 
-    assert_select 'ul.list-inline' do
-      assert_select 'li', DishDay.where(day: Date.today).count
-    end    
+    visit today_menus_path
+    page.wont_have_css 'p.alert-info'
+    page.must_have_css 'ul.list-inline'
+    assert_equal page.all('li#dish_day').count, DishDay.where(day: Date.today).count
+    page.must_have_css 'li#dish_day' 
   end
  
 end

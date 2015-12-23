@@ -12,6 +12,7 @@ class HomePageTest < InteractiveTest
 
     visit new_dish_day_path
     select "borsch", :from => "dish_day[dish_id]"
+    
     find('#dish_day_dish_of_the_day').set(true)
     click_button 'Save'
 
@@ -22,7 +23,6 @@ class HomePageTest < InteractiveTest
   end
 
   test "should render a modal with suggest dish dialog" do
-    Capybara.current_driver = :selenium
     visit root_path
 
     page.must_have_css 'div.col-md-3'

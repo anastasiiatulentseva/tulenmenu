@@ -17,6 +17,10 @@ class InteractiveTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   include Capybara::Assertions
 
+  def setup
+    Capybara.current_driver = :selenium
+  end
+  
   def teardown
     Capybara.reset_sessions!
     Capybara.use_default_driver

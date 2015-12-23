@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class SiteLayoutTest < ActionDispatch::IntegrationTest
+class HomePageTest < InteractiveTest
   
   test "layout links" do
-    get root_path
-    assert_template 'static_pages/home'
-    assert_select "a[href=?]", root_path
-    assert_select "a[href=?]", about_path
-    assert_select "a[href=?]", today_menus_path
-    assert_select "a[href=?]", week_plans_path
+    visit root_path
+    
+    page.must_have_css "a[href$='#{root_path}']"
+    page.must_have_css "a[href$='#{about_path}']"
+    page.must_have_css "a[href$='#{today_menus_path}']"
+    page.must_have_css "a[href$='#{week_plans_path}']"
   end
   
   

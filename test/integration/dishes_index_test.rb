@@ -1,11 +1,10 @@
 require 'test_helper'
 
-class DishesIndexTest < ActionDispatch::IntegrationTest
+class DishesIndexTest < InteractiveTest
  
   test "dishes index should be shown correclty" do
-    get dishes_path
-    assert_template 'dishes/index'
-    assert_select 'ul.dishes'
+    visit dishes_path
+    page.must_have_css 'ul.dishes'
   end
   
   

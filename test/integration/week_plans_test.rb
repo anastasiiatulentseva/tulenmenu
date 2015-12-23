@@ -1,29 +1,28 @@
 require 'test_helper'
 
-class WeekPlansTest < ActionDispatch::IntegrationTest
+class WeekPlansTest < InteractiveTest
   
   def setup
     @dish = dishes(:borsch)
   end
   
   test "should show correct list of dishes" do
-    get week_plans_path
-    assert_template 'index'
+    visit week_plans_path
     
     #No dishes for the week
-    assert_select 'p.alert-info'
-    assert_select 'ul.list-group', false
+    page.must_have_css 'p.alert-info'
+    page.wont_have_css 'ul.list-group'
     
-    get new_dish_day_path
-    post dish_days_path, dish_day: {dish_id: @dish.id, day: Date.today}
+    visit new_dish_day_path
+    select Date.today.year, :from => "dish_day[day(1i)]"
+    select @dish.name, :from => "dish_day[dish_id]"
+    click_button('Save')  
     
     #Week menu exists
-    get week_plans_path
-    assert_select 'ul.list-group'
-    assert_select 'ol.list-inline' do
-      assert_select 'li#week_plan_dishes', DishDay.where(day: Date.today.all_week).count
-    end
-    
+    visit week_plans_path
+    page.must_have_css 'ul.list-group'
+    page.must_have_css 'ol.list-inline'
+    assert_equal page.all('li#week_plan_dishes').count, DishDay.where(day: Date.today.all_week).count    
   end
   
 end
