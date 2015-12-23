@@ -1,6 +1,5 @@
 class SuggestedDishesController < ApplicationController
   
-  
   def new
     @suggested_dish = SuggestedDish.new
   end
@@ -14,16 +13,20 @@ class SuggestedDishesController < ApplicationController
       render "new"
     end
   end
-
+  
+  def index
+    @suggested_dishes = SuggestedDish.all
+  end
+  
   def show
-    
+    @suggested_dish = SuggestedDish.find(params[:id])
   end
 
 
   private
 
   def suggested_dish_params
-    params.require(:suggested_dish).permit(:name, :comment)
+    params.require(:suggested_dish).permit(:id, :name, :comment)
   end
 
 end

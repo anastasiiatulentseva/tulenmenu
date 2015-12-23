@@ -13,11 +13,18 @@
     <%= render 'shared/navbar' %>
     
     <div class="container">
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message.html_safe, class: "alert alert-#{message_type}") %>
-    <% end %>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message.html_safe, class: "alert alert-#{message_type}") %>
+      <% end %>
     
-    <%= yield %>
+      <% if request.original_url == root_url %>
+        <div>
+          <%= image_tag("home.jpg", alt: "Our logo", class: 'img-responsive') %>
+        </div>
+      <% end %>
+      <%= render 'shared/navmenu'%>
+    
+      <%= yield %>
     
   </div>
     <%= debug(params) if Rails.env.development? %>
