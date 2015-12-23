@@ -10,7 +10,7 @@
   FileUtils::mkdir_p path
   # FileUtils.copy(borsh, target_filename)
   
-  borsh_url = 'https://static-s.aa-cdn.net/img/ios/921356214/bae18a5601b99e62a7879edb5b7c1e34?v=1'
+  borsh_url = 'https://monosnap.com/file/KxQJwN3MAxcn63WZeZZOyu1Ssmp2nb.png'
   dish.update_attributes(remote_picture_url: borsh_url)
   dish.save!
 end

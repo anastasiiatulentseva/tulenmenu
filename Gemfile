@@ -31,7 +31,7 @@ gem 'awesome_print'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'pg'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -39,8 +39,6 @@ gem 'awesome_print'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -62,7 +60,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
   gem 'puma'
 end

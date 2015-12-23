@@ -5,8 +5,17 @@
 <% if @week_plan.exists? %>
   <div class="container">
     <ul class="list-group">
-      <% @week_plan.group(:day).each do |weekday| %>
-        <%= render partial: "weekday", locals: {weekday: weekday} %>
+      <% @week_plan.group_by{|w| w.day }.each do |day, weekdays| %>
+        <li class="list-group-item">
+          <h4><%= day.strftime("%A")%></h4>
+          <div class="container">
+            <ol class="list-inline">
+              <% weekdays.each do |weekdish| %>
+                <%= render partial: "weekdish", locals: {weekdish: weekdish} %>
+              <% end %>
+            </ol>
+          </div>
+        </li>
       <% end %>
     </ul>
   </div>

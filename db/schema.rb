@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151215123545) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "dish_days", force: :cascade do |t|
     t.integer  "dish_id"
     t.date     "day"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151215123545) do
     t.boolean  "dish_of_the_day", default: false
   end
 
-  add_index "dish_days", ["dish_id"], name: "index_dish_days_on_dish_id"
+  add_index "dish_days", ["dish_id"], name: "index_dish_days_on_dish_id", using: :btree
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
@@ -37,12 +40,5 @@ ActiveRecord::Schema.define(version: 20151215123545) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "suggestes_dishes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "picture"
-    t.string   "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "dish_days", "dishes"
 end
