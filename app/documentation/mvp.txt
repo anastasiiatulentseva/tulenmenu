@@ -1,5 +1,6 @@
 Scope 4:
 Add suggested dishes
+view suggested dishes
 
 Scope 3:
 Dish of the day
