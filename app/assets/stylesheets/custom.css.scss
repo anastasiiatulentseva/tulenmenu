@@ -66,10 +66,18 @@ p {
   text-align: left;
 }
 
-.img-responsive {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+
+div {
+  #today_menu {
+    position: relative; 
+  }
+  .badge { 
+    position: absolute; 
+    top: 0px; 
+    left: 0; 
+    width: 50%; 
+  }
 }
 
 #for-week {
@@ -116,10 +124,9 @@ p {
 }
 
 #for_dishes {
-    width: 205px;
-  }
-
-
+  width: 205px;
+}
+  
 /* miscellaneous */
 
 .debug_dump {

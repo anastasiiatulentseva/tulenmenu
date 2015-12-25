@@ -1,7 +1,10 @@
 <li id="dish_day">
-  <img class="img-rounded" src="<%= dish_day.dish.picture %>" />
-  <p class="text-center"><%= dish_day.dish.name %></p>
-  <% if dish_day.dish_of_the_day %>
-  <span class="badge">Dish of the day!</span>
-  <% end %>
+  <div id="today_menu">
+    <img class="img-rounded" src="<%= dish_day.dish.picture %>" />
+    <% if dish_day.dish_of_the_day %>
+      <span class="badge">Dish of the day!</span>
+    <% end %>
+    <p class="text-center"><%= dish_day.dish.name %></p>
+  </div>
+  
 </li>
