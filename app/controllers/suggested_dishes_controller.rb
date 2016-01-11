@@ -10,7 +10,7 @@ class SuggestedDishesController < ApplicationController
       flash[:success] = "You have suggested <strong>#{@suggested_dish.name}</strong>."
       redirect_to root_url
     else
-      render "new"
+      render 'new'
     end
   end
   
@@ -18,8 +18,18 @@ class SuggestedDishesController < ApplicationController
     @suggested_dishes = SuggestedDish.all
   end
   
-  def show
+  def edit
     @suggested_dish = SuggestedDish.find(params[:id])
+  end
+  
+  def update
+    @suggested_dish = SuggestedDish.find(params[:id])
+    if @suggested_dish.update_attributes(suggested_dish_params)
+      flash[:success] = "Suggested dish have been updated"
+      redirect_to suggested_dishes_path
+    else
+      render 'edit'
+    end
   end
 
 
