@@ -1,8 +1,19 @@
 <% provide(:title, "Dish list") %>
 
 <h2>Here I can view list of all dishes</h2>
-<div class="col-md-8">
-  <ul class="dishes">
-    <%= render @dishes %>
-  </ul>
-</div>
+
+<table class="table borderless">
+  
+  <% @dishes.in_groups_of(3).each do |row| %>
+    <tr>
+      <% row.each do |dish| %>
+        <td class="center">
+          <% if dish %>
+            <img class="img-thumbnail" src="<%= dish.picture %>" />
+            <span class="name clearfix"><%= link_to dish.name, edit_dish_path(dish.id)%></span>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

@@ -2,7 +2,7 @@ class DishesController < ApplicationController
   
   
   def index
-    @dishes = Dish.all
+    @dishes = Dish.all.order(updated_at: :desc)
   end
   
   def new
@@ -17,7 +17,20 @@ class DishesController < ApplicationController
     else
       render "new"
     end
-      
+  end
+  
+  def edit
+    @dish = Dish.find(params[:id])
+  end
+  
+  def update
+    @dish = Dish.find(params[:id])
+    if @dish.update_attributes(dish_params)
+      flash[:success] = "Dish have been updated"
+      redirect_to edit_dish_path
+    else
+      render 'edit'
+    end
   end
   
   private

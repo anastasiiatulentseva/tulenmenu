@@ -15,10 +15,6 @@ body {
   padding-top: 0px;
 }
 
-section {
-  overflow: auto;
-}
-
 textarea {
   resize: vertical;
 }
@@ -48,7 +44,6 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
   padding-left: 40;
-  
 }
 
 h2 {
@@ -57,7 +52,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  
 }
 
 p {
@@ -91,18 +85,29 @@ div {
 .dishes {
   list-style: none;
   margin: 0;
+  
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
   }
+
   .name {
-    margin-top: 5em;
     padding-top: 0;
   }
   .comment {
     display: block;
-    margin-left: 60px;
+    margin-left: 30px;
+    border-bottom: 1px solid;
+  }
+}
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
+}
+/* table */
+table {
+  img {
+    width: 100px;
+    height: 100px;
   }
 }
 

@@ -1,0 +1,14 @@
+<% provide(:title, "Edit dish") %>
+
+<h1>Dish can be better!</h1>
+
+<div class="row">
+  <div class="col-md-3">
+    <span><strong>Current picture:</strong></span>
+    <img class="img-rounded" src="<%= @dish.picture %>" />
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <%= render 'dish_add_form' %>
+  </div>
+</div>
+<%= link_to '< Back to dishes', dishes_path %>

@@ -23,4 +23,10 @@ class SuggestedDishesControllerTest < ActionController::TestCase
   end
   
   
+  
+  
+  
+  
+  
+  
 end

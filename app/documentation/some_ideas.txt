@@ -2,10 +2,10 @@
 + see all today dishes from dish of the day panel
 + see list or link of other dishes on today's menu
 making dishes from suggested dishes
-edit suggested dishes instead showing them
-make table for dish list for further editing
-dashboard:
++edit suggested dishes instead showing them
++make table for dish list for further editing
 
+dashboard:
 make Dashboard for admin:
 make checkboxes for Dish of the day
 pre-made dishes (for borsh and kashka)
