@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :dish_days
   resources :today_menus
   resources :week_plans
-  resources :suggested_dishes
+  resources :suggested_dishes do
+    member do
+      post :upgrade
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -31,6 +31,13 @@ class SuggestedDishesController < ApplicationController
       render 'edit'
     end
   end
+  
+  def upgrade
+    suggested_dish = SuggestedDish.find(params[:id])
+    dish = make_dish(suggested_dish)
+    dish.save!
+    redirect_to edit_dish_path(dish)
+  end
 
 
   private
@@ -38,5 +45,16 @@ class SuggestedDishesController < ApplicationController
   def suggested_dish_params
     params.require(:suggested_dish).permit(:id, :name, :comment)
   end
+  
+  def make_dish(suggested_dish)
+    Dish.new(name: suggested_dish.name)
+  end
 
 end
+
+
+
+
+
+
+

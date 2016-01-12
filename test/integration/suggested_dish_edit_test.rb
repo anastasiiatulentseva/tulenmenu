@@ -14,7 +14,7 @@ class SuggestedDishEditTest < InteractiveTest
     page.must_have_css 'form.edit_suggested_dish'
     fill_in('suggested_dish[name]', :with => '')
     fill_in('suggested_dish[comment]', :with => 'p')
-    click_button('Send')
+    click_button('Save')
     page.must_have_css 'div#error_explanation'
     @pizza.reload
     assert_equal @name, @pizza.name
@@ -24,7 +24,7 @@ class SuggestedDishEditTest < InteractiveTest
   test "successful edit" do
     visit edit_suggested_dish_path(@pizza.id)
     fill_in('suggested_dish[comment]', with: "edited comment")
-    click_button('Send')
+    click_button('Save')
     page.must_have_css 'div.alert-success'
     page.must_have_css 'ul.dishes'
     @pizza.reload

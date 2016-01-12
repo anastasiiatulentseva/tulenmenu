@@ -1,4 +1,7 @@
-<li>
-  <span class="name"><%= link_to suggested_dish.name, edit_suggested_dish_path(suggested_dish.id) %></span>
+<li id="suggested_dish-<%= suggested_dish.id %>">
+  <span class="name">
+    <%= link_to suggested_dish.name, edit_suggested_dish_path(suggested_dish.id) %> |
+    <%= link_to "Make a dish", upgrade_suggested_dish_path(suggested_dish), method: :post %>
+  </span>
   <span class="comment"><%= suggested_dish.comment%></span>
 </li>
