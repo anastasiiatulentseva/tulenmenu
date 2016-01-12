@@ -26,7 +26,7 @@ class SuggestedDishEditTest < InteractiveTest
     fill_in('suggested_dish[comment]', with: "edited comment")
     click_button('Save')
     page.must_have_css 'div.alert-success'
-    page.must_have_css 'ul.dishes'
+    page.must_have_css 'ul#suggested_dishes'
     @pizza.reload
     page.must_have_content @pizza.comment
   end
