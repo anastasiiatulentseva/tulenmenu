@@ -2,12 +2,18 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.label :dish, class: "control-label" %>
-    <%= f.text_field :name, class: "form-control", id: "for_dishes", placeholder: "Enter a name"%>
+    <%= f.text_field :name, class: "form-control for-dishes",  id: "for-dishes", placeholder: "Enter a name"%>
   </div>
   <div class="form-group">
-      <%= f.label :picture, class: "control-label" %>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-      <p class="help-block">Choose a file up to 5MB</p>
+    <%= f.label :picture, class: "control-label" %>
+    
+    <%= image_tag @dish.picture_url, id: 'dish_new_picture', class: "fileinput-new thumbnail", style: "max-width: 300px"%>
+    
+    <span class="help-block">Choose your file or paste a url from the internets</span>
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    <span class="help-block">Choose a file up to 5MB</span>
+    
+    <%= f.text_field :remote_picture_url, class: "form-control for-dishes", id: "dish_remote_picture_url", placeholder: "Paste a URL here" %>
   </div>
   <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>

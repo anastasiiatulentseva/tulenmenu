@@ -36,7 +36,7 @@ class DishesController < ApplicationController
   private
   
   def dish_params
-    params.require(:dish).permit(:name, :picture)
+    params.require(:dish).permit(:name, :picture, :remote_picture_url)
   end
   
 end

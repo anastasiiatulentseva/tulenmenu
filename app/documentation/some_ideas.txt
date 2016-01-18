@@ -6,9 +6,7 @@ baby steps:
 
 dashboard:
 make Dashboard for admin:
-make checkboxes for Dish of the day
-pre-made dishes (for borsh and kashka)
-approving dishes and assign dates
+
 
 Devise - install gem for autentication
 
