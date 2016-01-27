@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_for(@suggested_dish) do |f| %>
+  <%= form_for(@suggested_dish, remote: true, html: {id: "add_suggested_dish_form"}) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :dish, class: "control-label" %>

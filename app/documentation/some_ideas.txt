@@ -1,5 +1,5 @@
 baby steps:
-  upload pictures from url
++  upload pictures from url
   show errors in pop-up for suggested_dishes
   remember last date in create menu form
   make week plan better(correct days sorting)

@@ -11,11 +11,12 @@
   <body>
     
     <%= render 'shared/navbar' %>
-    
     <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message.html_safe, class: "alert alert-#{message_type}") %>
-      <% end %>
+      <div class="container" id="flash_messages">
+        <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message.html_safe, class: "alert alert-#{message_type}") %>
+        <% end %>
+      </div>
     
       <% if request.original_url == root_url %>
         <div>
@@ -23,10 +24,10 @@
         </div>
       <% end %>
       <%= render 'shared/navmenu'%>
-    
+  
       <%= yield %>
-    
-  </div>
+  
+    </div>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

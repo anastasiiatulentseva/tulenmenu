@@ -8,22 +8,17 @@ class SuggestedDishesControllerTest < ActionController::TestCase
     assert_select "title",  "Suggested dish list | Menu Tulentsevyh"
   end
   
-  # test "should redirect new for correct suggested dish" do
- #    assert_difference 'SuggestedDish.count', 1 do
- #      post :create, suggested_dish: { name: "dish", comment: "hey hey" }
- #    end
- #    assert_redirected_to root_url
- #  end
+  test "should save correct suggested dish" do
+    assert_difference 'SuggestedDish.count', 1 do
+      xhr :post, :create, suggested_dish: { name: "dish", comment: "hey hey" }
+    end
+  end
   
   test "should render new for wrong suggested dish" do
     assert_no_difference 'SuggestedDish.count' do
-      post :create, suggested_dish: { name: "d" }
+      xhr :post, :create, suggested_dish: { name: "d" }
     end
-    assert_template 'suggested_dishes/new'
   end
-  
-  
-  
   
   
   

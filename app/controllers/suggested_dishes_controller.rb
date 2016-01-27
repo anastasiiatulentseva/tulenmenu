@@ -6,11 +6,12 @@ class SuggestedDishesController < ApplicationController
 
   def create
     @suggested_dish = SuggestedDish.new(suggested_dish_params)
-    if @suggested_dish.save
-      flash[:success] = "You have suggested <strong>#{@suggested_dish.name}</strong>."
-      redirect_to root_url
-    else
-      render 'new'
+    respond_to do |format|
+      if @suggested_dish.save
+        format.js { flash.now[:success] = "You have suggested <strong>#{@suggested_dish.name}</strong>."}
+      else
+        format.js
+      end
     end
   end
   

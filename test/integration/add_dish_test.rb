@@ -9,7 +9,7 @@ class AddDishTest < InteractiveTest
     @picture_name = 'smarta-oven-serving-dish-white__0091501_PE227207_S4.JPG'
   end
   
-  test "Add new dish" do
+  test "should add new dish" do
     visit new_dish_path
     page.must_have_css 'div.form-group'
     
@@ -42,7 +42,6 @@ class AddDishTest < InteractiveTest
     page.must_have_css("img[src='#{@picture_url}']")
     click_button('Save')
     visit dishes_path
-    ap page.body
     page.must_have_css("img[src='/uploads/dish/picture/#{Dish.order(:id).last.id}/#{@picture_name}']")
   end
   

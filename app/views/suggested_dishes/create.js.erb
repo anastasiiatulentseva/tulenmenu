@@ -1,0 +1,13 @@
+<% if @suggested_dish.persisted? %>
+  $('#suggested_dish_name').val('');
+  $('#suggested_dish_comment').val('');
+  $('<div></div>').addClass("alert alert-success").html('<%= flash.now[:success].html_safe %>').appendTo($('#flash_messages')) 
+  $('#suggested_dishes_modal').modal('hide');
+<% else %>
+  var errors = <%= @suggested_dish.errors.full_messages.to_json.html_safe %>;
+  var errorsHtml = $('<ul></ul>');
+  errors.forEach(function(err) {
+    $('<li></li>').html(err).appendTo(errorsHtml);
+  });
+  $('#error_explanation').html(errorsHtml);
+<% end %>
