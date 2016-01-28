@@ -9,6 +9,7 @@ class SuggestedDishesController < ApplicationController
     respond_to do |format|
       if @suggested_dish.save
         format.js { flash.now[:success] = "You have suggested <strong>#{@suggested_dish.name}</strong>."}
+        SuggestedDishMailer.new_suggested_dish(@suggested_dish).deliver_now
       else
         format.js
       end
