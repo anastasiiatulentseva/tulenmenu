@@ -19,6 +19,7 @@ class TodayMenusTest < InteractiveTest
     select @dish.name, :from => "dish_day[dish_id]"
     click_button('Save')
         
+        
     #Today's menu exists
     visit today_menus_path
     page.wont_have_css 'p.alert-info'

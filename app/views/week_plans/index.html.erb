@@ -5,15 +5,19 @@
 <% if @week_plan.exists? %>
   <div class="container">
     <ul class="list-group">
-      <% @week_plan.group_by{|w| w.day }.each do |day, weekdays| %>
+      <% Date.today.all_week.each do |weekday| %>
         <li class="list-group-item">
-          <h4><%= day.strftime("%A")%></h4>
+          <h4><%= weekday.strftime("%A")%></h4>
           <div class="container">
-            <ol class="list-inline">
-              <% weekdays.each do |weekdish| %>
-                <%= render partial: "weekdish", locals: {weekdish: weekdish} %>
-              <% end %>
-            </ol>
+            <% if @week_plan.where(day: weekday).exists? %>
+              <ol class="list-inline">
+                <% @week_plan.where(day: weekday).each do |weekdish| %>
+                  <%= render partial: "weekdish", locals: {weekdish: weekdish} %>
+                <% end %>
+              </ol>
+            <% else %>
+              <p>no dishes for this day yet</p>
+            <% end %>
           </div>
         </li>
       <% end %>

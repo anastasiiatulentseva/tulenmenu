@@ -6,7 +6,7 @@ class AddSuggestedDishTest < InteractiveTest
     visit root_path
     click_button('Do it')
     page.must_have_css 'div#suggested_dishes_modal'
-    fill_in('suggested_dish[name]', with: "new_suggested_dish")
+    fill_in('suggested_dish[name]', with: 'new_suggested_dish')
     fill_in('suggested_dish[comment]', with: "comment")
     click_button('Save')
     

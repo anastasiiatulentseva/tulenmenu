@@ -11,11 +11,16 @@ class HomePageTest < InteractiveTest
     page.must_have_css 'h3.alert-info'
 
     visit new_dish_day_path
+    select Date.today.year, :from => "dish_day[day(1i)]"
+    select Date::MONTHNAMES[Date.today.month], :from => 'dish_day[day(2i)]'
+    select Date.today.day, :from => "dish_day[day(3i)]"
     select "borsch", :from => "dish_day[dish_id]"
     
     find('#dish_day_dish_of_the_day').set(true)
     click_button 'Save'
 
+    assert_not_equal DishDay.dish_of_the_day.first, nil 
+    
     visit root_path
     page.must_have_css 'div#dish_of_the_day'
 
