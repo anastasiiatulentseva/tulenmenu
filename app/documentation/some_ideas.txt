@@ -1,9 +1,8 @@
 baby steps:
-+  upload pictures from url
-+ show errors in pop-up for suggested_dishes
-+ remember last date in create menu form
-+ make week plan better(correct days sorting)
-+ make email notification when someone suggests a dish
+  delete action for 
+    dishes, 
+    suggested dishes
+  edit action for dish days
 
 dashboard:
 make Dashboard for admin:
