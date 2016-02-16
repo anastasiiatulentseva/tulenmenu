@@ -5,7 +5,7 @@ class DishDayTest < ActiveSupport::TestCase
   def setup
     @dish = dishes(:borsch)
     @dish_day = dish_days(:one)
-    @dish_day_invalid = dish_days(:two)
+    @dish_day_past = dish_days(:two)
   end
  
   test "should be valid" do
@@ -22,9 +22,19 @@ class DishDayTest < ActiveSupport::TestCase
     assert_not @dish_day.valid?
   end
   
-  test "day should be today or later" do
-    @dish_day.day = Date.yesterday
-    assert_not @dish_day.valid?
+  test "day should be today or later when create" do
+    dish_day = DishDay.new(day: Date.yesterday)
+    dish_day.save
+
+    assert_not dish_day.persisted?
+    assert_not dish_day.valid?
+  end
+  
+  test "day can be in the past when save" do
+    @dish_day_past.day = 2.days.ago
+    @dish_day_past.save
+    assert @dish_day_past.persisted?
+    assert @dish_day_past.valid?
   end
     
   

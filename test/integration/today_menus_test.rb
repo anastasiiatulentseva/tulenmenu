@@ -16,6 +16,8 @@ class TodayMenusTest < InteractiveTest
     
     visit new_dish_day_path
     select Date.today.year, :from => "dish_day[day(1i)]"
+    select Date::MONTHNAMES[Date.today.month], :from => 'dish_day[day(2i)]'
+    select Date.today.day, :from => "dish_day[day(3i)]"
     select @dish.name, :from => "dish_day[dish_id]"
     click_button('Save')
         

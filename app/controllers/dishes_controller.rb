@@ -27,10 +27,16 @@ class DishesController < ApplicationController
     @dish = Dish.find(params[:id])
     if @dish.update_attributes(dish_params)
       flash[:success] = "Dish have been updated"
-      redirect_to edit_dish_path
+      redirect_to dishes_path
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @dish = Dish.find(params[:id]).destroy
+    flash[:success] = "Dish deleted"
+    redirect_to dishes_path
   end
   
   private

@@ -6,6 +6,8 @@ class DishesIndexTest < InteractiveTest
     visit dishes_path
     page.must_have_css 'table.borderless'
     within(:css, 'table') do
+      # ap Dish.order(:updated_at).first.name
+      # ap page.body
       first('td span').must_have_content(Dish.order(:updated_at).first.name)
     end
   end

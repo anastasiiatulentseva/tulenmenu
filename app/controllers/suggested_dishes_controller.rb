@@ -34,6 +34,12 @@ class SuggestedDishesController < ApplicationController
     end
   end
   
+  def destroy
+    @suggested_dish = SuggestedDish.find(params[:id]).destroy
+    flash[:success] = "Suggested dish deleted"
+    redirect_to suggested_dishes_path
+  end
+  
   def upgrade
     suggested_dish = SuggestedDish.find(params[:id])
     dish = make_dish(suggested_dish)

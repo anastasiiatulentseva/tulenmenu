@@ -7,10 +7,15 @@
   <% @dishes.in_groups_of(3).each do |row| %>
     <tr>
       <% row.each do |dish| %>
-        <td class="center">
+        <td>
           <% if dish %>
-            <img class="img-thumbnail" src="<%= dish.picture %>" />
-            <span class="name clearfix"><%= link_to dish.name, edit_dish_path(dish.id)%></span>
+            <div class="dish-cells center" id="dish-<%= dish.id %>">
+              <button type="button" class="pull-right close" aria-label="Close" id="close-button">
+                <%= link_to "&times;".html_safe, dish, method: :delete %>
+              </button>
+              <img class="img-thumbnail" src="<%= dish.picture %>" />
+              <span class="name clearfix"><%= link_to dish.name, edit_dish_path(dish.id)%></span>
+            </div>              
           <% end %>
         </td>
       <% end %>

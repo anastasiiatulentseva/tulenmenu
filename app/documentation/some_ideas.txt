@@ -1,8 +1,9 @@
 baby steps:
   delete action for 
-    dishes, 
-    suggested dishes
-  edit action for dish days
+    + dishes, 
+    + suggested dishes
+    + dish_days
+ + edit action for dish days
 
 dashboard:
 make Dashboard for admin:

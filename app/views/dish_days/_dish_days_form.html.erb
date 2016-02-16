@@ -1,0 +1,24 @@
+<div class="container">
+  <%= form_for(@dish_day, html: {multiupart: true, class:"form-horizontal" }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label "Choose date", class: "control-label"%>
+      <div class="form-inline">
+        <%= f.date_select :day, {order: [:day, :month, :year], default: @default_date}, {class: "form-control input-sm"} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label "Select dish", class: "control-label"%>
+      <%= f.collection_select(:dish_id, Dish.all, :id, :name, {}, class: "form-control for-dishes")%>
+      <div class="checkbox">
+        <%= f.label :dish_of_the_day, class: "checkbox inline" do %>
+          <%= f.check_box :dish_of_the_day %>
+          <span>That's a dish of the day!</span>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group">
+          <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

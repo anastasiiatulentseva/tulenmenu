@@ -17,6 +17,25 @@ class DishDaysController < ApplicationController
     end
   end
   
+  def edit
+    @dish_day = DishDay.find(params[:id])
+  end
+  
+  def update
+    @dish_day = DishDay.find(params[:id])
+    if @dish_day.update_attributes(dish_day_params)
+      flash[:success] = "Menu item have been updated"
+      redirect_to week_plans_path
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @dish_day = DishDay.find(params[:id]).destroy
+    flash[:success] = "Menu item deleted"
+    redirect_to week_plans_path
+  end
   
   private
   

@@ -1,11 +1,14 @@
-<li class="list-group-item"  id="suggested_dish-<%= suggested_dish.id %>">
-  <div class="row">
-    <div class="col-md-10">
-      <p class="name"><%= link_to suggested_dish.name, edit_suggested_dish_path(suggested_dish.id) %>: 
-      <span class="comment"><%= suggested_dish.comment%></span></p>
-    </div>
-    <div class="col-md-1">
-      <%= link_to "Make a dish", upgrade_suggested_dish_path(suggested_dish), method: :post, class:"btn btn-default"%>
-    </div>
+<li class="list-group-item"  id="suggested-dish-<%= suggested_dish.id %>">
+ 
+  <div class="pull-left">
+    <%= link_to "Make a dish", upgrade_suggested_dish_path(suggested_dish), method: :post, class:"btn btn-default"%>
   </div>
+  <div class="suggested-dish-content">
+    <p class="name"><%= link_to suggested_dish.name.capitalize, edit_suggested_dish_path(suggested_dish.id) %>: 
+    <span class="comment"><%= suggested_dish.comment%></span></p>
+  </div>
+  <button type="button" class="close" aria-label="Close" id="close-button">
+   <%= link_to "&times;".html_safe, suggested_dish, method: :delete %>
+  </button>
+
 </li>

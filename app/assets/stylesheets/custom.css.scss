@@ -31,6 +31,12 @@ textarea {
   padding-right: 0px;
 }
 
+button {
+  :hover {
+    text-decoration: none;
+  }
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,6 +77,12 @@ div {
     top: 0px; 
     left: 0; 
     width: 50%; 
+  }
+  .dish-cells {
+    position:relative;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -129,10 +141,36 @@ table {
     color: $state-danger-text;
   }
 }
-
+.suggested-dish-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+li {
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  #week_plan_dishes {
+    .close {
+      position: absolute;
+      top: -7px;
+      right: 2px;
+    }
+  }
+}
+td {
+  .close {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+  }
+}
 .for-dishes {
   width: 205px;
 }
+
   
 /* miscellaneous */
 

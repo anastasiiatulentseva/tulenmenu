@@ -9,3 +9,18 @@ kashka:
   id: 2
   name: k
   picture: b.jpg
+  
+pancakes:
+  id: 3
+  name: pancakes
+  picture: b.jpg
+  
+edit_dish:
+  id: 4
+  name: edit_me
+  picture: b.jpg
+  
+delete_dish:
+  id: 5
+  name: delete_me
+  picture: b.jpg

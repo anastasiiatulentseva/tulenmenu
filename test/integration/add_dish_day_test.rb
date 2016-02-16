@@ -21,9 +21,9 @@ class AddDishDayTest < InteractiveTest
     page.must_have_css 'div#error_explanation'
     
     #Valid submission
-    select Date.tomorrow.year, :from => "dish_day[day(1i)]"
-    select Date::MONTHNAMES[Date.tomorrow.month], :from => 'dish_day[day(2i)]'
-    select Date.tomorrow.day, :from => "dish_day[day(3i)]"
+    select Date.today.end_of_week.year, :from => "dish_day[day(1i)]"
+    select Date::MONTHNAMES[Date.today.end_of_week.month], :from => 'dish_day[day(2i)]'
+    select Date.today.end_of_week.day, :from => "dish_day[day(3i)]"
     select @dish.name, :from => "dish_day[dish_id]"
     click_button('Save')    
     assert_equal @dish_day_count + 1, DishDay.count
@@ -32,7 +32,9 @@ class AddDishDayTest < InteractiveTest
     
   test "check-box should set dish of the day to true" do
     visit new_dish_day_path
-    select Date.today.year, :from => 'dish_day[day(1i)]'
+    select Date.today.year, :from => "dish_day[day(1i)]"
+    select Date::MONTHNAMES[Date.today.month], :from => 'dish_day[day(2i)]'
+    select Date.today.day, :from => "dish_day[day(3i)]"
     select @dish.name, :from => "dish_day[dish_id]"
     check('dish_day[dish_of_the_day]')
     click_button('Save')

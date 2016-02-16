@@ -6,11 +6,12 @@ class SuggestedDishEditTest < InteractiveTest
     @pizza = suggested_dishes(:pizza)
     @name = @pizza.name
     @comment = @pizza.comment
+    @suggested_dishes_count = SuggestedDish.count
   end
   
-  test "usuccessful edit" do
+  test "unsuccessful edit" do
     visit suggested_dishes_path
-    click_link(@pizza.name)
+    click_link(@pizza.name.capitalize)
     page.must_have_css 'form.edit_suggested_dish'
     fill_in('suggested_dish[name]', :with => '')
     fill_in('suggested_dish[comment]', :with => 'p')
@@ -31,7 +32,14 @@ class SuggestedDishEditTest < InteractiveTest
     page.must_have_content @pizza.comment
   end
   
-  
+  test "deleting items" do
+    visit suggested_dishes_path
+    within("li#suggested-dish-#{@pizza.id}") do
+      find_link('×').click
+    end
+    page.must_have_css 'div.alert-success'
+    page.wont_have_css @pizza.name.capitalize
+  end
   
   
 end
