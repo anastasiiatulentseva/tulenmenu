@@ -1,9 +1,8 @@
 baby steps:
-  delete action for 
-    + dishes, 
-    + suggested dishes
-    + dish_days
- + edit action for dish days
+  make user login
+    login form
+    user model
+    install and set Devise
 
 dashboard:
 make Dashboard for admin:
