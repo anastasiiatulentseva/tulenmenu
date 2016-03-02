@@ -3,10 +3,13 @@ require 'test_helper'
 class HomePageTest < InteractiveTest
 
   def setup
-    @dish = dishes(:borsch)
+    @user = users(:john)
+    super
   end
 
   test "should show dish of the day" do
+    login_as_user(@user)
+    
     visit root_path
     page.must_have_css 'h3.alert-info'
 
@@ -23,13 +26,14 @@ class HomePageTest < InteractiveTest
     
     visit root_path
     page.must_have_css 'div#dish_of_the_day'
-
-    page.must_have_content @dish.name
+    
+    page.must_have_content "borsch"
   end
 
   test "should render a modal with suggest dish dialog" do
+    login_as_user(@user)
+    
     visit root_path
-
     page.must_have_css 'div.col-md-3'
     page.must_have_css 'input.btn'
     click_button('Do it!')

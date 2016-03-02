@@ -1,10 +1,16 @@
 <div class="container">
   <nav>
     <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to "Today's Menu", today_menus_path %></li>
-      <li><%= link_to "Week plan", week_plans_path %></li>
-      <li><%= link_to "Shopping list", '#' %></li>
-      <li><%= link_to "Feedback", '#' %></li>
+      <% if user_signed_in?%>
+        <li><%= link_to "Today's Menu", today_menus_path %></li>
+        <li><%= link_to "Week plan", week_plans_path %></li>
+        <li><%= link_to "Shopping list", '#' %></li>
+        <li><%= link_to "Feedback", '#' %></li>
+      <% else %>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+      <% end %>
     </ul>
   </nav>
 </div>

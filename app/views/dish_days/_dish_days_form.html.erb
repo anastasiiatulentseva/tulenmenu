@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label "Select dish", class: "control-label"%>
+      <%= f.label :dish_id, class: "control-label"%>
       <%= f.collection_select(:dish_id, Dish.all, :id, :name, {}, class: "form-control for-dishes")%>
       <div class="checkbox">
         <%= f.label :dish_of_the_day, class: "checkbox inline" do %>

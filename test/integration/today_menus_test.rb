@@ -3,11 +3,14 @@ require 'test_helper'
 class TodayMenusTest < InteractiveTest
  
   def setup
+    @user = users(:john)
+    super
     @dish = dishes(:borsch)
   end
   
-  
   test "should show correct result for today's menu" do
+    login_as_user(@user)
+    
     visit today_menus_path
    
     #No dishes for today

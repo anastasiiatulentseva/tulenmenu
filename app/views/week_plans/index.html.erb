@@ -10,11 +10,11 @@
           <h4><%= weekday.strftime("%A")%></h4>
           <div class="container">
             <% if @week_plan.where(day: weekday).exists? %>
-              <ol class="list-inline">
+              <ul class="list-inline" id="dish-day-<%= weekday %>">
                 <% @week_plan.where(day: weekday).each do |weekdish| %>
                   <%= render partial: "weekdish", locals: {weekdish: weekdish} %>
                 <% end %>
-              </ol>
+              </ul>
             <% else %>
               <p>no dishes for this day yet</p>
             <% end %>

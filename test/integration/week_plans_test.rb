@@ -3,10 +3,14 @@ require 'test_helper'
 class WeekPlansTest < InteractiveTest
   
   def setup
-    @dish = dishes(:borsch)
+    @user = users(:john)
+    super
+    @dish = dishes(:pancakes)
   end
   
   test "should show correct list of dishes" do
+    login_as_user(@user)
+    
     visit week_plans_path
     
     #No dishes for the week

@@ -1,7 +1,10 @@
 class SuggestedDishesController < ApplicationController
   
+  before_action :authenticate_user!
+  
   def new
     @suggested_dish = SuggestedDish.new
+    super
   end
 
   def create

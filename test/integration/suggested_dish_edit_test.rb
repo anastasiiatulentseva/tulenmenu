@@ -3,6 +3,8 @@ require "test_helper"
 class SuggestedDishEditTest < InteractiveTest
   
   def setup
+    @user = users(:john)
+    super
     @pizza = suggested_dishes(:pizza)
     @name = @pizza.name
     @comment = @pizza.comment
@@ -10,6 +12,8 @@ class SuggestedDishEditTest < InteractiveTest
   end
   
   test "unsuccessful edit" do
+    login_as_user(@user)
+    
     visit suggested_dishes_path
     click_link(@pizza.name.capitalize)
     page.must_have_css 'form.edit_suggested_dish'
@@ -23,6 +27,8 @@ class SuggestedDishEditTest < InteractiveTest
   end
   
   test "successful edit" do
+    login_as_user(@user)
+    
     visit edit_suggested_dish_path(@pizza.id)
     fill_in('suggested_dish[comment]', with: "edited comment")
     click_button('Save')
@@ -33,6 +39,8 @@ class SuggestedDishEditTest < InteractiveTest
   end
   
   test "deleting items" do
+    login_as_user(@user)
+    
     visit suggested_dishes_path
     within("li#suggested-dish-#{@pizza.id}") do
       find_link('×').click

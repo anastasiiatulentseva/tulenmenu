@@ -1,0 +1,6 @@
+john:
+  name: John Smith
+  email: john@smith.com
+  picture: b.jpg
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: "2016-03-21 19:01:21"

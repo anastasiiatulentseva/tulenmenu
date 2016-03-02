@@ -22,6 +22,12 @@ class DishDayTest < ActiveSupport::TestCase
     assert_not @dish_day.valid?
   end
   
+  test "dish should not go twice or more a day" do
+    dish_day = DishDay.new(dish_id: 3, day: Date.today)
+    dish_day.save
+    assert_not dish_day.persisted?
+  end
+  
   test "day should be today or later when create" do
     dish_day = DishDay.new(day: Date.yesterday)
     dish_day.save
