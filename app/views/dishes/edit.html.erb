@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-md-3">
     <span><strong>Current picture:</strong></span>
-    <img class="img-rounded" src="<%= @dish.picture %>" />
+    <img class="img-rounded" src="<%= @dish.picture.presence || asset_path('b2.png') %>" />
   </div>
   <div class="col-md-3 col-md-offset-1">
     <%= render 'dish_add_form' %>
