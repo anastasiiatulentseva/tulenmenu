@@ -1,37 +1,6 @@
-<div class="row">
-  <div class="col-md-9">
-    <div class="center jumbotron">
-      <h2>Dish of the day:</h2>
-      <% if @dish_of_the_day %>
-        <div class="container" id="dish_of_the_day">
-          <%= render "shared/dish_of_the_day"%>
-        </div>
-      <% else %>
-        <h3 class="alert alert-info">Try all delicious dishes!</h3>
-      <% end %>
-      <div class="pull-right">
-        <%= link_to  "See whole menu >", today_menus_path %>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <h4>Here you can press a button and suggest a dish.</h4>
-    <input type="button" id='suggest_dish_modal' class="btn btn-primary" data-toggle="modal" data-target="#suggested_dishes_modal" value="Do it!" />
-  </div>
-</div>
+<% if user_signed_in?%>
 
-
-<div class="modal fade" id="suggested_dishes_modal" title="Suggest a dish!">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Suggest something tasty!</h4>
-      </div>
-      <div class="modal-body">
-        <%= render "shared/suggested_dish_form" %>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
+  <%= render 'shared/home_for_users'%>
+<% else %>
+  <%= render 'shared/default_home'%>
+<% end %>

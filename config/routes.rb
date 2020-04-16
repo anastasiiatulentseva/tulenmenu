@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: {registrations: 'registrations'}
   root           'static_pages#home'
   get 'about' => 'static_pages#about'
   
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :dish_days
   resources :today_menus
   resources :week_plans
+  resources :users
   resources :suggested_dishes do
     member do
       post :upgrade

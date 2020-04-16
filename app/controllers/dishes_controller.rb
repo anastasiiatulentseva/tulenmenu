@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
   
+  before_action :authenticate_user!
   
   def index
     @dishes = Dish.all.order(updated_at: :desc)
@@ -34,6 +35,7 @@ class DishesController < ApplicationController
   end
   
   def destroy
+    #binding.pry
     @dish = Dish.find(params[:id]).destroy
     flash[:success] = "Dish deleted"
     redirect_to dishes_path

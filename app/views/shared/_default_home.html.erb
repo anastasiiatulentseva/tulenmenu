@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="center jumbotron">
+      <h2>Welcome to Menu Tulentsevyh</h2>
+      <p>Here will be a text <strong>about</strong> the app</p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h4>Be a chief and enjoy your dinner every day!</h4>
+    <ul class="list-unstyled">
+      <li class="bg-primary text-center"><%= link_to "Click here to sign up!", new_user_registration_path, style: "color: white", id:"sign-up"%>,</li>
+      <li class="text-center"><%= link_to "Click here to sign in!", new_user_session_path, id:"sign-in" %></li>
+    </ul>
+    <%= render Dish.first %>
+  </div>
+</div>

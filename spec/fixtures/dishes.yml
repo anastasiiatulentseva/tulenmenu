@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+borsch:
+  id: 1
+  name: borsch
+  picture: b.jpg
+
+kashka:
+  id: 2
+  name: k
+  picture: b.jpg
+  
+pancakes:
+  id: 3
+  name: pancakes
+  picture: b.jpg
+  
+edit_dish:
+  id: 4
+  name: edit_me
+  picture: b.jpg
+  
+delete_dish:
+  id: 5
+  name: delete_me
+  picture: b.jpg
+  
+delete_dish_for_dish_day:
+  id: 6
+  name: delete_dish_day
+  picture: b.jpg
+
+edit_dish_for_dish_day:
+  id: 7
+  name: edit_dish_day
+  picture: b.jpg
+  
+soup:
+  id: 8
+  name: soup
+  picture: b.jpg
+  
+delete_dish_for_dish_day2:
+  id: 9
+  name: delete_dish_day2
+  picture: b.jpg

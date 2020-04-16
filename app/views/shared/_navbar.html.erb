@@ -1,15 +1,18 @@
   <nav class="navbar-default">
     <div class="container-fluid">
+      <% if current_user %>
+      <span class="navbar-text">
+        Me logged in: </span>
+        <%= link_to current_user.email, user_path(current_user.id),class:"navbar-text"%> 
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"navbar-text" %>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Dish list", dishes_path %></li>
         <li><%= link_to "Add dish", new_dish_path %></li>
         <li><%= link_to "Create menu", new_dish_day_path %></li>
-        <li><%= link_to "Suggest a dish", new_suggested_dish_path %></li>
         <li><%= link_to "Suggested dish list", suggested_dishes_path %></li>
-        
-        
       </ul>
     </div>
   </nav>

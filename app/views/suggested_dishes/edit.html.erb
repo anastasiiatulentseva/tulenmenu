@@ -1,4 +1,18 @@
 <% provide(:title, "Edit suggested dish") %>
 
 <h1>You can make this real!</h1>
-<%= render 'shared/suggested_dish_form'%>
+<div class="container">
+  <%= form_for(@suggested_dish, html: {id: "add_suggested_dish_form"}) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :name, class: "control-label" %>
+      <%= f.text_field :name, class: "form-control for-dishes", placeholder: "Enter a name"%>
+    </div>
+    <div class="form-group">
+        <%= f.label :comment, class: "control-label" %>
+        <%= f.text_area :comment, class: "form-control for-dishes", placeholder: "Leave here your comment..." %>
+        <p class="help-block">You can type up to 255 characters</p>
+    </div>
+    <%= f.submit "Save", name: "commit", class: "btn btn-primary" %>
+  <% end %>
+</div> 

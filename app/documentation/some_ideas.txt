@@ -1,8 +1,14 @@
 baby steps:
-  make user login
-    login form
-    user model
-    install and set Devise
+  make users authorization
+   + menu items for logged in users
+    make simple users role
+    make admin user role
+    menu items for each role
+    
+need tests:
+  check menu items and site layout for guests and logged in users
+  check that users can change their info and see profile page
+  
 
 dashboard:
 make Dashboard for admin:
@@ -29,15 +35,5 @@ Entities (models):
   Suggested_dishes
     name
     comment
-
-Controllers:
-  application
-  user
-  static_pages (home, about)
-  week_plan
-  todays_menu
-  dish_day_controller
-  suggested_dishes
-
 
 

@@ -26,10 +26,10 @@ textarea {
   }
 }
 
-.container {
-  padding-left: 0px;
-  padding-right: 0px;
-}
+//.container {
+//  padding-left: 0px;
+//  padding-right: 0px;
+//}
 
 button {
   :hover {
@@ -146,13 +146,28 @@ table {
   margin-left: auto;
   margin-right: auto;
 }
+.checkbox-inline {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* close buttons */
 li {
   .close {
     position: absolute;
     top: 5px;
     right: 10px;
   }
-  #week_plan_dishes {
+  .week-plan-dish {
     .close {
       position: absolute;
       top: -7px;

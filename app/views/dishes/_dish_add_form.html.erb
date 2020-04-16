@@ -1,7 +1,7 @@
 <%= form_for(@dish, html: {multiupart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
-    <%= f.label :dish, class: "control-label" %>
+    <%= f.label :name, 'Dish', class: "control-label" %>
     <%= f.text_field :name, class: "form-control for-dishes",  id: "for-dishes", placeholder: "Enter a name"%>
   </div>
   <div class="form-group">

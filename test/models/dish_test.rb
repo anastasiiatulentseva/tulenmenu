@@ -10,12 +10,12 @@ class DishTest < ActiveSupport::TestCase
     assert @dish.valid?
   end
   
-  test "name should be present" do
+  test "dish name should be present" do
     @dish.name = "   "
     assert_not @dish.valid?
   end
   
-  test "name should be from 3 and 50 characters" do
+  test "dish name should be from 3 and 50 characters" do
     @dish.name = "aa"
     assert_not @dish.valid?
     @dish.name = "a" * 51

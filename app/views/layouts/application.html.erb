@@ -2,31 +2,32 @@
 <html>
   <head>
     <title><%= full_title(yield(:title))  %> </title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
-  
+
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    
-    <%= render 'shared/navbar' %>
+
+    <%= render 'shared/navbar' if user_signed_in?%>
+
     <div class="container">
       <div class="container" id="flash_messages">
         <% flash.each do |message_type, message| %>
           <%= content_tag(:div, message.html_safe, class: "alert alert-#{message_type}") %>
         <% end %>
       </div>
-    
+
       <% if request.original_url == root_url %>
         <div>
-          <%= image_tag("home.jpg", alt: "Our logo", class: 'img-responsive') %>
+          <%= image_tag(asset_path("home.jpg"), alt: "Our logo", class: 'img-responsive img-rounded') %>
         </div>
       <% end %>
       <%= render 'shared/navmenu'%>
-  
+
       <%= yield %>
-  
+
     </div>
     <%= debug(params) if Rails.env.development? %>
   </body>
