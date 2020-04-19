@@ -9,7 +9,9 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs

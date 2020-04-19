@@ -28,6 +28,7 @@ gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'awesome_print'
 gem 'devise'
+gem 'webpacker', git: 'https://github.com/rails/webpacker'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pg'

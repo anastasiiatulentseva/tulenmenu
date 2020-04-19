@@ -3,9 +3,10 @@
       <% if current_user %>
       <span class="navbar-text">
         Me logged in: </span>
-        <%= link_to current_user.email, user_path(current_user.id),class:"navbar-text"%> 
+        <%= link_to current_user.email, user_path(current_user.id),class:"navbar-text"%>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class:"navbar-text" %>
-      <% end %>
+        <%= link_to 'Svelte', svelte_path, class:"navbar-text"%>
+    <% end %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>

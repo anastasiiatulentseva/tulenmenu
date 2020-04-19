@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'registrations'}
   root           'static_pages#home'
   get 'about' => 'static_pages#about'
-  
+  get 'svelte' => 'static_pages#svelte'
   resources :dishes
   resources :dish_days
   resources :today_menus
